@@ -1,0 +1,16 @@
+name: tagged-issue
+on:
+  issues:
+    types: [labeled]
+jobs:
+  update-background-color:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST label color
+        id: post-label-color
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: 'https://thoughtworks-eg2021.vercel.app/api/color'
+          method: 'POST'
+          contentType: 'text/plain'
+          data: ${{ github.event.label.color }}
