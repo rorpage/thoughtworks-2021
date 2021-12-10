@@ -13,4 +13,4 @@ jobs:
           url: 'https://thoughtworks-eg2021.vercel.app/api/color'
           method: 'POST'
           contentType: 'text/plain'
-          data: format('#{0}', ${{ github.event.label.color }})
+          data: ${{ format('#{0}', github.event.label.color ) }}
